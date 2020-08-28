@@ -1,4 +1,0 @@
-version: '2'
-services:
-    php:
-        image: ${STACK_PHP_IMAGE}

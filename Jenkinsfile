@@ -42,15 +42,9 @@ pipeline {
                     }
                 }
 
-                 stage('Running composer install') {
-                            steps {
-                                sh "docker pull gits5622/yii-basic"
-                            }
-                        }
-
                 stage ('Running tha Application'){
                     steps{
-                        sh "docker run -d -it -p 8080:8080 --name gits5622/yii-basic:latest"
+                        sh "docker-compose up -d
                     }
                 }
 
