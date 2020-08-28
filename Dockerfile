@@ -10,7 +10,6 @@ RUN composer install --prefer-dist --optimize-autoloader --no-dev && \
 
 ADD yii /app/
 ADD ./web /app/web/
-ADD ./src /app/src/
 ADD ./config /app/config
 
 RUN cp config/app.env-dist config/app.env
