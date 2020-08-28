@@ -50,7 +50,7 @@ pipeline {
 
                 stage ('Running tha Application'){
                     steps{
-                        sh "docker run -d - rm -p 8080:8080 - name gits5622/yii-basic:latest"
+                        sh "docker run -p 8080:8080 - name gits5622/yii-basic:latest"
                     }
                 }
 
