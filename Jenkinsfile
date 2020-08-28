@@ -44,15 +44,13 @@ pipeline {
 
                  stage('Running composer install') {
                             steps {
-                                    script {
-                                        dockermigrate
-                                    }
+                                sh "docker pull gits5622/yii-basic"
                             }
                         }
 
                 stage ('Running tha Application'){
                     steps{
-                       sh "docker-compose up -d"
+                        sh "docker run -d - rm -p 8080:8080 - name gits5622/yii-basic"
                     }
                 }
 
