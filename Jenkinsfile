@@ -3,7 +3,7 @@ pipeline {
             registry = "gits5622/yii-basic"
             registryCredential = 'docker-hub'
             dockerImage = ''
-            dockermigrate = docker.build("app -f Dockerfile")
+//             dockermigrate = docker.build("app -f Dockerfile")
             }
         agent any
         stages {
@@ -44,7 +44,7 @@ pipeline {
 
                 stage ('Running tha Application'){
                     steps{
-                        sh "docker-compose up -d
+                        sh "docker-compose up -d"
                     }
                 }
 
