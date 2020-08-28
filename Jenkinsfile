@@ -8,7 +8,7 @@ pipeline {
         agent {
          docker {
                     image 'ubuntu'
-                    args '-u root:sudo -v $HOME/workspace/yii-basic:/yii-basic'
+                    args '-u root:sudo -v $HOME/var/www/html/yii-basic:/yii-basic'
                 }
          }
         stages {
