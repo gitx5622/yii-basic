@@ -31,7 +31,13 @@ pipeline {
                         }
                     }
                 }
-                
+
+                stage ('Running tha Application'){
+                    steps{
+                        sh "docker-compose up -d"
+                    }
+                }
+
                 stage('Deploy our image') {
                     steps{
                         script {
@@ -39,12 +45,6 @@ pipeline {
                         dockerImage.push()
                             }
                         }
-                    }
-                }
-
-                stage ('Running tha Application'){
-                    steps{
-                        sh "docker-compose up -d"
                     }
                 }
 
