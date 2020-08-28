@@ -3,7 +3,7 @@ pipeline {
             registry = "gits5622/yii-basic"
             registryCredential = 'docker-hub'
             dockerImage = ''
-            // dockermigrate = docker.build("app -f Dockerfile-migrate")
+            dockermigrate = docker.build("app -f Dockerfile")
             }
         agent any
         stages {
@@ -23,9 +23,7 @@ pipeline {
                             echo "Running"
                         }
                         success{
-                            // script {
-                             //       dockermigrate
-                           //  }
+
                            echo "Build Success"
                         }
                         failure{
@@ -46,9 +44,9 @@ pipeline {
 
                  stage('Running composer install') {
                             steps {
-                               sh 'sudo chown root:apt-get install php7.2-mbstring'
-                               sh 'composer install --prefer-dist --optimize-autoloader --no-dev'
-                               sh 'composer clear-cache'
+                                    script {
+                                        dockermigrate
+                                    }
                             }
                         }
 
