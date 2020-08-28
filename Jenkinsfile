@@ -44,6 +44,13 @@ pipeline {
                     }
                 }
 
+                 stage('Running composer install') {
+                            steps {
+                                sh 'php --version'
+                                sh 'composer install'
+                            }
+                        }
+
                 stage ('Running tha Application'){
                     steps{
                        sh "docker-compose up -d"
