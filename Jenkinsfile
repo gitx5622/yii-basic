@@ -5,7 +5,12 @@ pipeline {
             dockerImage = ''
             // dockermigrate = docker.build("app -f Dockerfile-migrate")
             }
-        agent any
+        agent {
+         docker {
+                    image 'ubuntu'
+                    args '-u root:sudo -v $HOME/workspace/yii-basic:/yii-basic'
+                }
+         }
         stages {
                 stage('Cloning our Git') {
                     steps {
@@ -46,7 +51,7 @@ pipeline {
 
                  stage('Running composer install') {
                             steps {
-                               sh 'sudo apt-get install php7.2-mbstring'
+                               sh 'apt-get install php7.2-mbstring'
                                sh 'composer install --prefer-dist --optimize-autoloader --no-dev'
                                sh 'composer clear-cache'
                             }
