@@ -46,7 +46,7 @@ pipeline {
 
                  stage('Running composer install') {
                             steps {
-                               sh 'apt-get install php7.2-mbstring'
+                               sh 'sudo apt-get install php7.2-mbstring'
                                sh 'composer install --prefer-dist --optimize-autoloader --no-dev'
                                sh 'composer clear-cache'
                             }
