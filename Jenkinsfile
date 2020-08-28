@@ -5,12 +5,7 @@ pipeline {
             dockerImage = ''
             // dockermigrate = docker.build("app -f Dockerfile-migrate")
             }
-        agent {
-            docker {
-            image 'ubuntu'
-            args '-u root:sudo -v /var/www/html/yii-basic'
-        }
-        }
+        agent any
         stages {
                 stage('Cloning our Git') {
                     steps {
