@@ -35,7 +35,6 @@ pipeline {
                                steps{
                                   sh "composer install --prefer-dist --optimize-autoloader --no-dev"
                                   sh "composer update"
-                                  sh "mkdir -p runtime web/assets"
                                   sh "chmod -R 777 runtime web/assets"
                                }
                            }
