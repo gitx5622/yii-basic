@@ -35,8 +35,8 @@ pipeline {
                                steps{
                                   sh "composer install --prefer-dist --optimize-autoloader --no-dev"
                                   sh "composer update"
-                                  sh "chmod -R 755 runtime"
-                                  sh "chmod -R 755 web/assets"
+//                                   sh "chmod -R 755 runtime"
+//                                   sh "chmod -R 755 web/assets"
                                }
                            }
 
