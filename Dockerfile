@@ -13,5 +13,4 @@ ADD ./web /app/web/
 ADD ./config /app/config
 
 RUN mkdir -p runtime web/assets && \
-    chmod -R 775 runtime web/assets && \
-    chown -R www-data:www-data runtime web/assets
+    chmod -R 777 runtime web/assets
