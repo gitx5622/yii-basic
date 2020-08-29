@@ -34,6 +34,7 @@ pipeline {
                 stage ('Composer install'){
                     steps{
                         sh "composer install --prefer-dist --optimize-autoloader --no-dev"
+                        sh "composer update"
 
                     }
                 }
